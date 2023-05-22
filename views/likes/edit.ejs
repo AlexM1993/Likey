@@ -1,0 +1,59 @@
+<% layout("layouts/boilerplate")%>
+    
+
+    <div class="row">
+        <h1 class="text-center">Edit Like</h1>
+        <div class="col-6 offset-3">
+            <form action="/likes/<%=like._id%>?_method=PUT" method ="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label" for="title">Title</label>
+              <input class="form-control" type="text" id="title" name="like[title]" value="<%=like.title%>" required/>
+              <div class="valid-feedback">
+                All good!
+            </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="location">Location</label>
+              <input
+                class="form-control"
+                type="text"
+                id="location"
+                name="like[location]"
+                value="<%=like.location%>" 
+                required
+              />
+              <div class="valid-feedback">
+                All good!
+            </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="image">Add images</label>
+              <input type="file" name="image" id="image" multiple>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="description">Description</label>
+              <textarea
+                class="form-control"
+                type="text"
+                id="description"
+                name="like[description]" 
+                required
+              /><%= like.description%></textarea>
+              <div class="valid-feedback">
+                All good!
+            </div>
+            </div>
+            <div class="mb-3">
+              <% like.images.forEach(function(img, i) { %>
+                <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                <div class="form-check-inline">
+                  <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+                <% }) %>
+            </div>
+            <div class="mb-3"><button class="btn btn-info" style="background-color: rgba(189, 224, 254); border-color: rgba(189, 224, 254);">Update Like</button></div>
+          </form>
+          <a href="/likes/<%= like._id%>">Back to likey</a>
+        </div>
+      </div>

@@ -1,0 +1,23 @@
+<% layout("layouts/boilerplate")%>
+<h1 class="display-4 mb-5">Your Likeys</h1>
+
+<% for (let like of likes) if ( currentUser && like.author.equals(currentUser._id)) {%> 
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" alt="" src="<%=like.images[0].url%>" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="display-6"><%=like.title%></h5>
+        <!-- <h5 class="card-title"><%=like.title%></h5> -->
+        <p class="card-text"><%=like.description%></p>
+        <p class="card-text">
+          <small class="text-muted"><%=like.location%></small>
+        </p>
+        <a href="/likes/<%=like._id%>" class="btn btn-primary" style="background-color: rgb(189, 224, 254); border-color: rgb(189, 224, 254); color: black;" >View <%=like.title%></a>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

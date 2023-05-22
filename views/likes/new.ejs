@@ -1,0 +1,59 @@
+<% layout("layouts/boilerplate")%>
+<div class="row">
+  <h1 class="text-center">New Likey</h1>
+  <div class="col-6 offset-3">
+    <form action="/likes" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input class="form-control" type="text" id="title" name="like[title]" required/>
+        <div class="valid-feedback">
+            All good!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="like[location]"
+          required
+        />
+        <div class="valid-feedback">
+            All good!
+        </div>
+      </div>
+      <input type="file" name="image" id="" multiple>
+      <!-- <div class="mb-3">
+        <label class="form-label" for="image">Image URL</label>
+        <input
+          class="form-control"
+          type="text"
+          id="image"
+          name="like[image]"
+          required
+        />
+        <div class="valid-feedback">
+            All good!
+        </div>
+      </div> -->
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="like[description]"
+          required
+        /></textarea>
+        <div class="valid-feedback">
+            All good!
+        </div>
+      </div>
+      <div class="mb-3"><button class="btn btn-success" style="background-color: rgb(189, 224, 254); border-color: rgb(189, 224, 254); color: black;">Add Likey</button></div>
+    </form>
+    <a href="/likes">Back to your Likeys</a>
+  </div>
+</div>
+
+
