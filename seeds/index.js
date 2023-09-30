@@ -46,7 +46,7 @@ seedDB().then(() => {
     mongoose.connection.close()
 })
 
-//const sample = array => array[Math.floor(Math.random() * array.length)];
+
 
 // const seedDB = async () => {
 //     await Like.deleteMany({});
